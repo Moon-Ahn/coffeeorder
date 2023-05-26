@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe Orders</title>
+</head>
+<body>
+    <h1>Cafe Orders</h1>
+
+    <form action="/" method="POST">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="coffee_type">메뉴:</label>
+        <select id="coffee_type" name="coffee_type" required>
+            <option value="Espresso">Espresso</option>
+            <option value="Cappuccino">Cappuccino</option>
+            <option value="Latte">Latte</option>
+        </select><br><br>
+
+        <label for="size"></label>
+        <input type="radio" id="ICE" name="size" value="ICE" required>
+        <label for="small">ICE</label>
+        <input type="radio" id="HOT" name="size" value="HOT">
+        <label for="medium">HOT</label></label><br><br>
+
+        <input type="submit" value="주문">
+    </form>
+
+    <h2>Orders:</h2>
+    {% if orders %}
+        <ul>
+        {% for order in orders %}
+            <li>{{ order.name }} - {{ order.size }} {{ order.type }} </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>주문 내역이 없습니다.</p>
+    {% endif %}
+</body>
+</html>
