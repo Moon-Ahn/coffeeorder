@@ -12,25 +12,28 @@
 
         <label for="coffee_type">메뉴:</label>
         <select id="coffee_type" name="coffee_type" required>
+            <option value=""> </option>
             <option value="Espresso">Espresso</option>
             <option value="Cappuccino">Cappuccino</option>
             <option value="Latte">Latte</option>
         </select><br><br>
 
-        <label for="size"></label>
-        <input type="radio" id="ICE" name="size" value="ICE" required>
+        <label for="temp"></label>
+        <input type="radio" id="ICE" name="temp" value="ICE" required>
         <label for="small">ICE</label>
-        <input type="radio" id="HOT" name="size" value="HOT">
+        <input type="radio" id="HOT" name="temp" value="HOT">
         <label for="medium">HOT</label></label><br><br>
-
         <input type="submit" value="주문">
+    </form>
+    <form action="/beverage_data" style="display: inline-block;">
+            <input type="submit" value="주문 목록">
     </form>
 
     <h2>Orders:</h2>
     {% if orders %}
         <ul>
         {% for order in orders %}
-            <li>{{ order.name }} - {{ order.size }} {{ order.type }} </li>
+            <li>{{ order.name }} - {{ order.temp }} {{ order.type }} </li>
         {% endfor %}
         </ul>
     {% else %}
